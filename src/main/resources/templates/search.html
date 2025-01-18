@@ -38,11 +38,10 @@
 
   <!-- TODO #4 - Loop over the search results to display all job fields. -->
     <p th:if="${empty == true}">No Search Results Found</p>
-    <table class="job-listing" th:if="${empty == null}">
-        <th:block th:each="job : ${jobs}">
+    <table class='job-listing' th:if="${empty == null}" th:each="job : ${jobs}">
+        <th:block>
             <tr>
                 <td>
-                    <p>ID: <span th:text="${job.id}"></span></p>
                     <p>Name: <span th:text="${job.name}"></span></p>
                     <p>Employer: <span th:text="${job.employer}"></span></p>
                     <p>Location: <span th:text="${job.location}"></span></p>
