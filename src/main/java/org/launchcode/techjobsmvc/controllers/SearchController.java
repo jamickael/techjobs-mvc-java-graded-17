@@ -39,6 +39,9 @@ public class SearchController {
             jobs = JobData.findByColumnAndValue(searchType, searchTerm);
             model.addAttribute("title", "Jobs with " + searchType + ": " + searchTerm);
         }
+        if (jobs.isEmpty()) {
+            model.addAttribute("empty", true); //no results validation - used in th:if statement in "search"
+        }
         model.addAttribute("jobs", jobs);
         model.addAttribute("columns", columnChoices);
         return "search";
